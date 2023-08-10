@@ -191,7 +191,6 @@ web-cache==1.1.0
 webcolors==1.13
 webencodings==0.5.1
 websocket-client==1.5.1
-websockets==11.0.3
 Werkzeug==2.3.6
 wget==3.2
 widgetsnbextension==4.0.7
