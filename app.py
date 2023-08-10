@@ -42,8 +42,8 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #"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"
-os.environ['OPENAI_API_KEY'] = "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"
-openai.api_key="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"
+os.environ['OPENAI_API_KEY'] = "enter-api-key"
+openai.api_key="enter-api-key"
 from streamlit_chat import message
 global docs
 from langchain.text_splitter import CharacterTextSplitter
@@ -836,7 +836,7 @@ def send_email(data):
     #message = "Congratulations! 🎉 You have been shortlisted for the next steps in the hiring process. We will be contacting you soon for the screening round."
     for _, row in data.iterrows():
         # Email configuration
-        sender_email = "narenj8329@gmail.com"
+        sender_email = "enter_your_mail@gmail.com"
         receiver_email = row['Email']
         msg = MIMEMultipart()
         msg['From'] = sender_email
@@ -859,7 +859,7 @@ def send_email(data):
         try:
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
-            server.login(sender_email, 'ikmvtwehrfeyzibg')
+            server.login(sender_email, 'password')
             server.sendmail(sender_email, row['Email'], msg.as_string())
             print(f"Email sent to {row['Email']}")
         except Exception as e:
