@@ -63,7 +63,7 @@ from langchain.document_loaders import UnstructuredWordDocumentLoader
 from langchain.document_loaders import UnstructuredHTMLLoader
 from langchain.document_loaders import UnstructuredPowerPointLoader
 from langchain.document_loaders import UnstructuredFileLoader
-image = Image.open(r"C:\Users\admin\Pictures\HR.png")  # Replace with the actual path to your image
+image = Image.open("HR.png")  # Replace with the actual path to your image
 
 # Display the image in the sidebar
 st.sidebar.image(image, use_column_width=200)
