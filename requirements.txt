@@ -6,7 +6,6 @@ appdirs==1.4.4
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 arrow==1.2.3
-assemblyai==0.15.1
 asttokens==2.2.1
 async-timeout==4.0.2
 attrs==23.1.0
@@ -132,7 +131,6 @@ Pympler==1.0.1
 pypdf==3.14.0
 PyPDF2==3.0.1
 pyperclip==1.8.2
-pyppeteer==1.0.2
 pyrsistent==0.19.3
 python-dateutil==2.8.2
 python-engineio==4.5.1
