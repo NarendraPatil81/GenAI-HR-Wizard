@@ -63,7 +63,7 @@ from langchain.document_loaders import UnstructuredWordDocumentLoader
 from langchain.document_loaders import UnstructuredHTMLLoader
 from langchain.document_loaders import UnstructuredPowerPointLoader
 from langchain.document_loaders import UnstructuredFileLoader
-image = Image.open("HR.png")  # Replace with the actual path to your image
+image = Image.open("https://github.com/NarendraPatil81/GenAI-HR-Wizard/blob/5c4ffdf60213d7da3dfa1613974a6ed686ef4abb/HR.png")  # Replace with the actual path to your image
 
 # Display the image in the sidebar
 st.sidebar.image(image, use_column_width=200)
