@@ -184,7 +184,6 @@ Werkzeug==2.3.6
 wget==3.2
 widgetsnbextension==4.0.7
 yarl==1.9.2
-zipp==3.15.0
 character-split==0.3.1
 llms==0.8.1
 UnstructuredText==0.6.2
