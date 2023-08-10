@@ -181,8 +181,6 @@ web-cache==1.1.0
 webcolors==1.13
 webencodings==0.5.1
 Werkzeug==2.3.6
-wget==3.2
-character-split==0.3.1
 llms==0.8.1
 UnstructuredText==0.6.2
 python-magic==0.4.22
