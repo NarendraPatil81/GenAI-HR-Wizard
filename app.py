@@ -646,7 +646,7 @@ def Job_Description_evaluation():
 
 
 with st.sidebar:
-    image = Image.open(r"C:\Users\admin\Pictures\HR.png") 
+    image = Image.open("HR.png") 
     # Display the image in the sidebar
     st.sidebar.image(image, use_column_width='auto')
     #st.sidebar.title("GenAI HR Wizard")
