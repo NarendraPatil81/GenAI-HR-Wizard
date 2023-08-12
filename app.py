@@ -902,7 +902,7 @@ def main():
         st.title("File Upload and Processing")
 
 
-        uploaded_file = st.file_uploader("Upload a file", type=["txt", "csv", "xlsx"])
+        uploaded_file = st.file_uploader("Upload a file", type=["pdf", "csv", "xlsx"])
 
         if uploaded_file:
        # Process uploaded file
