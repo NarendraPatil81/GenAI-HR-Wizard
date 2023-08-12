@@ -395,10 +395,12 @@ def CV_ranking():
         for resume in uploaded_files:
             st.write(resume)
             print(resume)
+            path = os.path.dirname(__file__)
             file_extension = os.path.splitext(resume.name)[1]
             #st.write(f"Uploaded file extension: {file_extension}")
+            my_file = path+str(resume.name)
             if file_extension=='.pdf':
-                loader = PyPDFLoader(resume.name)
+                loader = PyPDFLoader(my_file)
             if file_extension=='.docx':
                 loader = UnstructuredWordDocumentLoader(resume.name)
             if file_extension=='.txt':
