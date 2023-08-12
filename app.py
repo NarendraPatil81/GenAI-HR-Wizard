@@ -909,7 +909,7 @@ def main():
     # Your processing code here
             path = os.path.dirname(__file__)
             my_file = path+'/'+str(uploaded_file.name)
-            loader = PyPDFLoader(my_file)
+            loader = PyPDFLoader(uploaded_file)
             docs=loader.load()
             st.write(docs)
             st.success("File processed successfully.")
