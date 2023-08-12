@@ -881,7 +881,7 @@ def main():
     docs=[]
     st.sidebar.title("GenAI HR Wizard")
     options = ['Job Description evaluation',"CV Ranking, Generate Screening Questions & Email Send",'First-Round Interview & Evaluation','GenAI Resume Chatbot',
-"Resume Score & Enhancements","st"]
+"Resume Score & Enhancements","st_file"]
     selected_option = st.sidebar.radio("Select an option", options)
 
     if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
@@ -898,7 +898,7 @@ def main():
         rss()
     elif selected_option=="Resume Score & Enhancements":
         calculate_resume_score()
-    else selected_option=='st':
+    elif selected_option=='st_file':
         st.title("File Upload and Processing")
 
 
