@@ -84,23 +84,7 @@ def get_vectorstore(text_chunks):
     vectorstore = FAISS.from_documents(text_chunks, embedding=embeddings)
     return vectorstore
 
-def save_uploaded_file(file):
-    print("file uploaded")
-    drive_path = "/content/drive/MyDrive/Upload2"  # Change to your desired Google Drive folder
-    os.makedirs(drive_path, exist_ok=True)
-    file_path = os.path.join(drive_path, file.name)
-    with open(file_path, "wb") as f:
-        f.write(file.read())
-    return file_path
 
-def save_video_file(file):
-    print("file uploaded")
-    drive_path = "/content/drive/MyDrive/HR_Video"  # Change to your desired Google Drive folder
-    os.makedirs(drive_path, exist_ok=True)
-    file_path = os.path.join(drive_path, file.name)
-    with open(file_path, "wb") as f:
-        f.write(file.read())
-    return file_path
 
 def eval():
     st.title("🔍 Decode Interview Performance")
@@ -124,69 +108,6 @@ def eval():
             transcript = model.transcribe(video_path)
             transcript=transcript['text']
             print(transcript)
-            # Use regular expressions to extract questions, answers, and feedback
-            # pattern = r'Question: (.*?)\n\nAnswer: (.*?)\n\nScore: (\d+)'  # Pattern for extracting question, answer, and score
-            # qa_matches = re.findall(pattern, text, re.DOTALL)
-
-            # pattern = r'Overall Feedback:\n\n(.*?)\n\n'  # Pattern for extracting overall feedback
-            # feedback_matches = re.findall(pattern, text, re.DOTALL)
-
-            # # Organize the extracted data into a list of dictionaries
-            # qa_list = [{'question': q, 'answer': a, 'score': int(s)} for q, a, s in qa_matches]
-            # feedback_list = [{'feedback': f} for f in feedback_matches]
-
-            # # Combine the questions, answers, scores, and feedback into a final list of dictionaries
-            # final_data = []
-            # for i in range(len(qa_list)):
-            #     qa_dict = qa_list[i]
-            #     qa_dict.update(feedback_list[i])
-            #     final_data.append(qa_dict)
-
-            # # Print the extracted data
-            # for item in final_data:
-            #     st.text(item['question'])
-            #     st.text(item['answer'])
-            #     st.text(item['score'])
-            #     st.text(item['feedback'])
-            #     print("Question:", item['question'])
-            #     print("Answer:", item['answer'])
-            #     print("Score:", item['score'])
-            #     print("Overall Feedback:", item['feedback'])
-            #     print("----")
-            # # # Extract audio from the uploaded video
-            # audio_path = "audio.wav"
-            # ffmpeg_extract_audio(video_path, audio_path)
-    
-            # st.write("Audio extracted successfully!")
-    
-            # # Initialize the recognizer
-            # recognizer = sr.Recognizer()
-    
-            # # Load the audio file and perform speech recognition
-            # with sr.AudioFile(audio_path) as source:
-            #     st.write("Performing speech recognition...")
-            #     audio = recognizer.record(source)
-    
-            #     try:
-            #         transcript = recognizer.recognize_google(audio)
-            #         st.write("Extracted Text:")
-            #         st.write(transcript)
-            #     except sr.UnknownValueError:
-            #         st.write("Speech Recognition could not understand audio")
-            #     except sr.RequestError as e:
-            #         st.write(f"Could not request results from Google Web Speech API; {e}")
-
-        # Clean up: Delete the temporary audio file
-            #speech = transcript
-            #model_name_or_path = "TheBloke/Llama-2-13B-chat-GGML"
-            #model_basename = "llama-2-13b-chat.ggmlv3.q5_1.bin" # the model is in bin format
-            #model_path = hf_hub_download(repo_id=model_name_or_path, filename=model_basename)
-            #n_gpu_layers = 40  # Change this value based on your model and your GPU VRAM pool.
-            #n_batch = 256  # Should be between 1 and n_ctx, consider the amount of VRAM in your GPU.
-
-            # Loading model,
-            #llm = LlamaCpp(model_path=model_path,max_tokens=256,n_gpu_layers=n_gpu_layers,n_batch=n_batch,callback_manager=callback_manager,n_ctx=1024,verbose=False,)
-            #chain=load_qa_chain(llm, chain_type="stuff")
             text_splitter=RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
             chain = load_qa_chain(llm=OpenAI(), chain_type="map_reduce")
             python_docs = text_splitter.create_documents([transcript])
@@ -252,18 +173,6 @@ def eval():
                     print("Extracted Text After Overall Feedback:\n", extracted_text_after)
                 else:
                     print("Overall Feedback section not found.")
-                # before_overall_feedback = re.search(r"(.+?)\nOverall Feedback:", message, re.DOTALL)
-                # if before_overall_feedback:
-                #     extracted_text = before_overall_feedback.group(1)
-                #     before_overall_feedback_l.append(extracted_text)
-                #     st.write(extracted_text)
-                #     print("Extracted Text Before Overall Feedback:\n", extracted_text)
-                # else:
-                #     print("Overall Feedback section not found.")
-                # overall_feedback_section = re.search(r"(?<=Overall Feedback:\n)(.+)", message, re.DOTALL)
-                # overall.append(overall_feedback_section[0])
-                # st.write(overall_feedback_section[0])
-                # #print(overall_feedback_section[0])
             for text in before_overall_feedback_l:
                 st.text(text)
 
@@ -348,21 +257,6 @@ def extract_resume_info(resume_info_string):
 
     return resume_info_dict
 
-
-# def data_loader():
-#     file_extension = os.path.splitext(resume.name)[1]
-#     if file_extension=='.pdf':
-#         loader = PyPDFLoader(resume.name)
-#         docs=loader.load()
-#     if file_extension=='.docx':
-#         loader = UnstructuredWordDocumentLoader(resume.name)
-#         docs=loader.load()
-#     if file_extension=='.txt':
-#         loader = UnstructuredFileLoader(resume.name)
-#         docs=loader.load()
-#     if file_extension=='.pptx':
-#         loader = UnstructuredPowerPointLoader(resume.name)
-#         docs=loader.load()
 
 
 def CV_ranking():
@@ -475,10 +369,7 @@ def CV_ranking():
             3. Projects: Include inquiries about the candidate's involvement in specific_project mentioned in the resume.
             4. Job Description Alignment: Ensure questions assess the candidate's compatibility with the job_role.
 '''
-            # prompt=f'''Generate a set of Five HR and Fiteen Technical interview questions tailored to the provided resume{resume_text}:
-            # Please generate a mix of HR and Technical questions based on the candidate's qualifications and experience.
-            # Please generate questions that evaluate both the candidate's interpersonal and technical skills based on their resume.
-            # '''  
+            
             completions = openai.Completion.create (engine="text-davinci-003",prompt=prompt,max_tokens=2000,n=1,stop=None,temperature=0.8,)
             questions = completions.choices[0].text
             # questions= chain.run(input_documents=resume_text, question=prompt)
@@ -506,10 +397,6 @@ def CV_ranking():
         st.header("Sent Email to Shortlisted Candidates")
         send_email(df)
         
-            # After processing, show the job description and results
-            #right_column.write(f"### Job Description")
-            #right_column.write(job_description)
-            # Perform your analysis on the job description and resumes here
 
 
 def CV_ranking_job_des(job_description):
@@ -881,7 +768,7 @@ def main():
     docs=[]
     st.sidebar.title("GenAI HR Wizard")
     options = ['Job Description evaluation',"CV Ranking, Generate Screening Questions & Email Send",'First-Round Interview & Evaluation','GenAI Resume Chatbot',
-"Resume Score & Enhancements","st_file"]
+"Resume Score & Enhancements"]
     selected_option = st.sidebar.radio("Select an option", options)
 
     if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
@@ -898,23 +785,6 @@ def main():
         rss()
     elif selected_option=="Resume Score & Enhancements":
         calculate_resume_score()
-    elif selected_option=='st_file':
-        st.title("File Upload and Processing")
-
-
-        uploaded_file = st.file_uploader("Upload a file", type=["pdf", "csv", "xlsx"])
-
-        if uploaded_file:
-       # Process uploaded file
-    # Your processing code here
-            path = os.path.dirname(__file__)
-            my_file = path+'/'+str(uploaded_file.name)
-            loader = PyPDFLoader(uploaded_file)
-            docs=loader.load()
-            st.write(docs)
-            st.success("File processed successfully.")
-
-
 
 
 
