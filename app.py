@@ -393,6 +393,8 @@ def CV_ranking():
     submit_button = st.button("CV Ranking 🚀")
     if uploaded_files and job_description and submit_button:
         for resume in uploaded_files:
+            st.write(resume)
+            print(resume)
             file_extension = os.path.splitext(resume.name)[1]
             #st.write(f"Uploaded file extension: {file_extension}")
             if file_extension=='.pdf':
