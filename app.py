@@ -908,7 +908,7 @@ def main():
        # Process uploaded file
     # Your processing code here
             path = os.path.dirname(__file__)
-            my_file = path+'/'+str(resume.name)
+            my_file = path+'/'+str(uploaded_file.name)
             loader = PyPDFLoader(my_file)
             docs=loader.load()
             st.write(docs)
