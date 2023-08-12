@@ -908,6 +908,8 @@ def main():
        # Process uploaded file
     # Your processing code here
             loader = PyPDFLoader(uploaded_file.name)
+            docs=loader.load()
+            st.write(docs)
             st.success("File processed successfully.")
 
 
