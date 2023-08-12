@@ -881,7 +881,7 @@ def main():
     docs=[]
     st.sidebar.title("GenAI HR Wizard")
     options = ['Job Description evaluation',"CV Ranking, Generate Screening Questions & Email Send",'First-Round Interview & Evaluation','GenAI Resume Chatbot',
-"Resume Score & Enhancements"]
+"Resume Score & Enhancements","st"]
     selected_option = st.sidebar.radio("Select an option", options)
 
     if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
@@ -898,15 +898,21 @@ def main():
         rss()
     elif selected_option=="Resume Score & Enhancements":
         calculate_resume_score()
+    else selected_option=='st':
+        st.title("File Upload and Processing")
+
+
+        uploaded_file = st.file_uploader("Upload a file", type=["txt", "csv", "xlsx"])
+
+        if uploaded_file:
+       # Process uploaded file
+    # Your processing code here
+            loader = PyPDFLoader(resume.name)
+            st.success("File processed successfully.")
 
 
 
-# def read_pdf(file):
-#     # Function to read the content of a PDF file
-#     # You can use libraries like PyPDF2, pdfplumber, or pdfminer to read PDF content
-#     # For simplicity, let's assume we're just reading text from the PDF here.
-#     if file is not None:
-#         return file.read().decode()
+
 
 
 if __name__ == "__main__":
