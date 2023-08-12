@@ -907,7 +907,7 @@ def main():
         if uploaded_file:
        # Process uploaded file
     # Your processing code here
-            loader = PyPDFLoader(resume.name)
+            loader = PyPDFLoader(uploaded_file.name)
             st.success("File processed successfully.")
 
 
