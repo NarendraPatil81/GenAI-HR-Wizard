@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
+          pip install streamlit streamlit-chat 
+          pip install farm-haystack 
+          pip install 'farm-haystack[faiss]'
+          pip install tiktoken
+          pip install ffmpeg
           pip install -r requirements.txt  # Replace with the actual name of your requirements file
 
       - name: Retrieve API key from GitHub Secrets
