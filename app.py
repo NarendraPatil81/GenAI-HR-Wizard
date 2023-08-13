@@ -653,11 +653,11 @@ with st.sidebar:
          ,icons=['gear', 'sort-numeric-up',  'cloud-upload', 'robot', 'star'],
         menu_icon='file',
         default_index=0,
-        styles={
-        "container": {"padding": "10px", "background-color": "#f6f6f6"},
-        "icon": {"color": "#0fd115", "font-size": "24px"},
-        "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#0fd115"},
-        "nav-link-selected": {"background-color": "#e62020", "color": "white", "border-radius": "5px"},
+       styles={
+        "container": {"padding": "10px", "background-color": "#292b2c"},
+        "icon": {"color": "#f8f9fa", "font-size": "24px"},
+        "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#f8f9fa"},
+        "nav-link-selected": {"background-color": "#f8f9fa", "color": "#292b2c", "border-radius": "5px"},
     }
 
     )
