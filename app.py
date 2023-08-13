@@ -647,7 +647,7 @@ with st.sidebar:
     st.sidebar.image(image, use_column_width='auto')
     st.sidebar.title("GenAI HR Wizard")
 
-    selected_option = option_menu(
+    selected_option = option_menu("HR Menu"
         ['Job Description evaluation',"CV Ranking, Generate Screening Questions & Email Send",'First-Round Interview & Evaluation','GenAI Resume Chatbot',
 "Resume Score & Enhancements"]       
          ,icons=['gear', 'sort-numeric-up',  'cloud-upload', 'robot', 'star'],
