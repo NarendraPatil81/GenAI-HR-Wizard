@@ -541,7 +541,6 @@ def send_email(data):
 Resume_Flag=False
 def Job_Description_evaluation():
     text =''
-    Resume_Flag=True
     st.title("🚀Job Description Recommendations and Enhancements")
     #left_column, right_column = st.columns(2)
     job_description_up=''
@@ -559,6 +558,7 @@ def Job_Description_evaluation():
 
     # Calculate Score button
     if st.button("Craft Stellar Job Descriptions 🌟"):
+        Resume_Flag=True
         flag=0
         prompt = f"""Suggest the changes that need to be made for the following job title{job_title} and job description{job_description}:
 
