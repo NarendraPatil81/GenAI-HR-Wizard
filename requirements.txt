@@ -16,6 +16,7 @@ backcall==0.2.0
 beautifulsoup4==4.12.2
 bidict==0.22.1
 bleach==6.0.0
+openai-whisper @ git+https://github.com/openai/whisper.git@b91c907694f96a3fb9da03d4bbdc83fbcd3a40a4
 blinker==1.6.2
 cachelib==0.10.2
 cachetools==5.3.1
