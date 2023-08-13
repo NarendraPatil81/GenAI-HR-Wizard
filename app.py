@@ -686,23 +686,22 @@ if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
     st.title("🔝 Top CV Shortlisting & Ranking, Generate Screening The Questions and Sent The Mail")
     st.header("Upload Resumes")
     uploaded_files = st.file_uploader("Upload Resumes", type=["txt", "pdf", "docx", "pptx"],accept_multiple_files=True)
-    selected_option_jd = st.selectbox("Select an option:", ["Original Job Description", "Enhanced Job Description"])
-    if Resume_Flag:
-        if selected_option_jd=="Enhanced Job Description":
-            with open('output.txt', 'r') as file:
-                content = file.read()
-            print("in side en",content)
-            job_description = content
-            job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
-        elif selected_option_jd=="Original Job Description":
-        # Right column for entering job description text
-            st.header("Job Description")
-            with open('output_org.txt', 'r') as file:
-                content = file.read()
-            print("in side en",content)
-            job_description = content
-            job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
-    else:
+    selected_option_jd = st.selectbox("Select an option:", ["Custom Job Description","Original Job Description", "Enhanced Job Description"])
+    if selected_option_jd=="Enhanced Job Description":
+        with open('output.txt', 'r') as file:
+            content = file.read()
+        print("in side en",content)
+        job_description = content
+        job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
+    elif selected_option_jd=="Original Job Description":
+    # Right column for entering job description text
+        st.header("Job Description")
+        with open('output_org.txt', 'r') as file:
+            content = file.read()
+        print("in side en",content)
+        job_description = content
+        job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
+    elif selected_option=="Custom Job Description":
         job_description = st.text_area(label="Enter Job Description",height=400)
     candidate_n = st.number_input("Enter the number of candidates you want to select from the top CV rankings:",min_value=1,step=1)
     l2=[]
