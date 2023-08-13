@@ -34,9 +34,12 @@ jobs:
           pip install tiktoken
           pip install -r requirements.txt  # Replace with the actual name of your requirements file
 
-      - name: Set OpenAI API Key
-        run: echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
-
+      - name: Set up secret file
+      env:
+        DEBUG_PASSWORD: ${{ secrets.OPENAI_API_KEY }}
+      run: |
+        echo $DEBUG_PASSWORD >> secrets.txt
+        echo $DEBUG_SECRET_KEY >> secrets.txt
 
       - name: Deploy Streamlit App
         run: |
