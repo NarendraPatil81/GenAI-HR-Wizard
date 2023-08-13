@@ -420,10 +420,7 @@ def CV_ranking():
         st.header("Sent Email to Shortlisted Candidates")
         send_email(df)
         
-            # After processing, show the job description and results
-            #right_column.write(f"### Job Description")
-            #right_column.write(job_description)
-            # Perform your analysis on the job description and resumes here
+            
 
 
 def rss():
@@ -500,7 +497,7 @@ def rss():
 
 
 def send_email(data):
-    #name  = data['Name']
+    name  = data['Name']
     subject = "Next Steps in Hiring Process"
     message = (
     "Congratulations! 🎉 You have been shortlisted for the next steps in the hiring process. "
@@ -878,6 +875,7 @@ if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
         df.to_csv(csv_data, index=False)
         st.download_button(label="Download Resume Rank CSV File", data=csv_data, file_name=file_name, mime="text/csv")
         st.session_state['data_file'] = df
+        send_email(df)
         # Create a download button to download the CSV file
     # if st.session_state.output_data:
     #     for idx, output in enumerate(st.session_state.output_data):
