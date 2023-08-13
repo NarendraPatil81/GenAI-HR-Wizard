@@ -655,7 +655,7 @@ with st.sidebar:
         menu_icon='file',
         default_index=0,
         styles = {
-    "container": {"padding": "10px", "background-color": "#f4f4f4"},
+    "container": {"padding": "10px", "background-color": "#0a0a0a"},
     "icon": {"color": "black", "font-size": "24px"},
     "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#eee"},
     "nav-link-selected": {"background-color": "#e80e24"}
