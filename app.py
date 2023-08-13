@@ -645,21 +645,20 @@ with st.sidebar:
     image = Image.open("HR.png") 
     # Display the image in the sidebar
     st.sidebar.image(image, use_column_width='auto')
-    #st.sidebar.title("GenAI HR Wizard")
+    st.sidebar.title("GenAI HR Wizard")
 
     selected_option = option_menu(
-        'GenAI HR Wizard',
         ['Job Description evaluation',"CV Ranking, Generate Screening Questions & Email Send",'First-Round Interview & Evaluation','GenAI Resume Chatbot',
 "Resume Score & Enhancements"]       
          ,icons=['gear', 'sort-numeric-up',  'cloud-upload', 'robot', 'star'],
         menu_icon='file',
         default_index=0,
-        styles = {
-    "container": {"padding": "10px", "background-color": "#fcfafa"},
-    "icon": {"color": "#0fd115", "font-size": "24px"},
-    "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#0fd11"},
-    "nav-link-selected": {"background-color": "#e62020"}
-}
+        styles={
+        "container": {"padding": "10px", "background-color": "#f6f6f6"},
+        "icon": {"color": "#0fd115", "font-size": "24px"},
+        "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#0fd115"},
+        "nav-link-selected": {"background-color": "#e62020", "color": "white", "border-radius": "5px"},
+    }
 
     )
     #options = ['Job Description evaluation',"CV Ranking, Generate Screening Questions & Email Send",'First-Round Interview & Evaluation','GenAI Resume Chatbot',"Resume Score & Enhancements"]
