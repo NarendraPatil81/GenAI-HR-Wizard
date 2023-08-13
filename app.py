@@ -54,7 +54,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 #openai.api_key=os.environ.get('OPENAI_API_KEY') 
 
 api_key = os.environ.get("OPENAI_API_KEY")
-st.write(api_key)
+#st.write(api_key)
 # Set the API key in the OpenAI library
 openai.api_key = api_key
 from streamlit_chat import message
