@@ -104,7 +104,6 @@ numba==0.57.1
 numexpr==2.8.4
 numpy==1.24.4
 openai==0.27.8
-openai-whisper @ git+https://github.com/openai/whisper.git@b91c907694f96a3fb9da03d4bbdc83fbcd3a40a4
 openapi-schema-pydantic==1.2.4
 packaging==23.1
 pandas==2.0.3
