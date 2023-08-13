@@ -20,8 +20,10 @@ jobs:
 
       - name: Install FFmpeg
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          RUN apt-get update && apt-get install git -y
+          RUN pip3 install -r requirements.txt
+          RUN pip3 install "git+https://github.com/openai/whisper.git" 
+          RUN apt-get install -y ffmpeg
 
       - name: Install dependencies
         run: |
@@ -30,7 +32,6 @@ jobs:
           pip install farm-haystack 
           pip install 'farm-haystack[faiss]'
           pip install tiktoken
-          pip install ffmpeg
           pip install -r requirements.txt  # Replace with the actual name of your requirements file
 
       - name: Retrieve API key from GitHub Secrets
