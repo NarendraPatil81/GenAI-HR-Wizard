@@ -1,4 +1,5 @@
 nltk==3.8.1
+ffmpeg-python
 unstructured==0.9.1
 unstructured[all-docs]
 aiohttp==3.8.4
