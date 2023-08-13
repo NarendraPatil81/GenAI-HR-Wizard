@@ -51,7 +51,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 #"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"
 #os.environ['OPENAI_API_KEY'] =  os.environ.get('OPENAI_API_KEY')
-openai.api_key=os.environ.get('OPENAI_API_KEY')
+openai.api_key=os.environ.get('OPENAI_API_KEY') 
 from streamlit_chat import message
 global docs
 from langchain.text_splitter import CharacterTextSplitter
