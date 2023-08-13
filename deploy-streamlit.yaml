@@ -23,6 +23,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt  # Replace with the actual name of your requirements file
 
+      - name: Retrieve API key from GitHub Secrets
+        id: api_key
+        run: echo "::set-output name=api_key::${{ secrets.OPENAI_API_KEY }}"
+
+      - name: Set API key as environment variable
+        run: |
+          echo "OPENAI_API_KEY=${{ steps.api_key.outputs.api_key }}" >> $GITHUB_ENV
+
       - name: Deploy Streamlit App
         run: |
           streamlit run app.py  # Replace with the actual name of your Streamlit app file
