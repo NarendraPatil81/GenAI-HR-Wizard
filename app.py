@@ -540,9 +540,10 @@ def send_email(data):
         st.text(res)
 
 
-
+Resume_Flag=False
 def Job_Description_evaluation():
     text =''
+    Resume_Flag=True
     st.title("🚀Job Description Recommendations and Enhancements")
     #left_column, right_column = st.columns(2)
     job_description_up=''
@@ -639,7 +640,7 @@ def Job_Description_evaluation():
         with open('output_org.txt', "w") as file:
             file.write(job_description)
         st.text('"Enhanced Job Description Copied! Paste it using Ctrl+V for immediate use...!!!"')
-        pyperclip.copy(job_description_up)
+        #pyperclip.copy(job_description_up)
         #CV_ranking(job_description_up)
 
 
@@ -688,20 +689,23 @@ if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
     st.header("Upload Resumes")
     uploaded_files = st.file_uploader("Upload Resumes", type=["txt", "pdf", "docx", "pptx"],accept_multiple_files=True)
     selected_option_jd = st.selectbox("Select an option:", ["Original Job Description", "Enhanced Job Description"])
-    if selected_option_jd=="Enhanced Job Description":
-        with open('output.txt', 'r') as file:
-            content = file.read()
-        print("in side en",content)
-        job_description = content
-        job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
-    elif selected_option_jd=="Original Job Description":
-    # Right column for entering job description text
-        st.header("Job Description")
-        with open('output_org.txt', 'r') as file:
-            content = file.read()
-        print("in side en",content)
-        job_description = content
-        job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
+    if Resume_Flag:
+        if selected_option_jd=="Enhanced Job Description":
+            with open('output.txt', 'r') as file:
+                content = file.read()
+            print("in side en",content)
+            job_description = content
+            job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
+        elif selected_option_jd=="Original Job Description":
+        # Right column for entering job description text
+            st.header("Job Description")
+            with open('output_org.txt', 'r') as file:
+                content = file.read()
+            print("in side en",content)
+            job_description = content
+            job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
+    else:
+        job_description = st.text_area(label="Enter Job Description",height=400)
     candidate_n = st.number_input("Enter the number of candidates you want to select from the top CV rankings:",min_value=1,step=1)
     l2=[]
     ques=[]
@@ -978,7 +982,6 @@ elif selected_option=="Resume Score & Enhancements":
                 items = message1.split(".")
                 for i in items:
                     st.text(i)
-
 
 
 
