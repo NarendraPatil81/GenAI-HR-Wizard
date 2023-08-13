@@ -32,7 +32,7 @@ from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.chains.question_answering import load_qa_chain
 import whisper
 from streamlit_option_menu import option_menu
-
+global Resume_Flag
 
 st.set_page_config(page_title="HR Wizard")
 
@@ -538,7 +538,7 @@ def send_email(data):
         st.text(res)
 
 
-Resume_Flag=False
+
 def Job_Description_evaluation():
     text =''
     st.title("🚀Job Description Recommendations and Enhancements")
