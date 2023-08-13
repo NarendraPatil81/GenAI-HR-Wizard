@@ -39,7 +39,6 @@ eventlet==0.33.3
 executing==1.2.0
 faiss-cpu==1.7.4
 fastjsonschema==2.16.3
-ffmpeg==1.4
 filelock==3.12.2
 Flask==2.3.2
 Flask-PyMongo==2.3.0
