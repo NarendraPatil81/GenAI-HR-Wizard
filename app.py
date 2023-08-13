@@ -710,7 +710,7 @@ if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
     rank_can =1
     # If resume files are uploaded, process them
     submit_button = st.button("CV Ranking 🚀")
-    if submit_button:
+    if submit_button and job_description:
         if not uploaded_files:
             st.stop()
         for uploaded_file in uploaded_files:
