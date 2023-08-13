@@ -658,7 +658,7 @@ with st.sidebar:
     "container": {"padding": "10px", "background-color": "#0a0a0a"},
     "icon": {"color": "#e62020", "font-size": "24px"},
     "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#eee"},
-    "nav-link-selected": {"background-color": "#e80e24"}
+    "nav-link-selected": {"background-color": "#0fd115"}
 }
 
     )
