@@ -657,7 +657,7 @@ with st.sidebar:
         styles = {
     "container": {"padding": "10px", "background-color": "#fcfafa"},
     "icon": {"color": "#0fd115", "font-size": "24px"},
-    "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#eee"},
+    "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#0fd11"},
     "nav-link-selected": {"background-color": "#e62020"}
 }
 
