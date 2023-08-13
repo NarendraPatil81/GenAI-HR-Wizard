@@ -96,6 +96,7 @@ def get_vectorstore(text_chunks):
 
 def eval():
     st.title("🔍 Decode Interview Performance")
+    text_feed =''
     callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
     # Allow multiple file uploads
     uploaded_files = st.file_uploader("Upload MP4 Files", type=["mp4"], accept_multiple_files=True)
@@ -165,7 +166,7 @@ def eval():
                 '''
                 completions = openai.Completion.create (engine="text-davinci-003",prompt=prompt_load,max_tokens=2200,n=1,stop=None,temperature=0.5,)
                 message = completions.choices[0].text
-                #print(message)
+                print(message)
                 st_1 += message
                 before_overall_feedback = re.search(r"(.+?)\nOverall Feedback:", message, re.DOTALL)
                 after_overall_feedback = re.search(r"(?<=Overall Feedback:\n)(.+)", message, re.DOTALL)
@@ -176,7 +177,8 @@ def eval():
                     print("Extracted Text Before Overall Feedback:\n", extracted_text_before)
                 else:
                     print("Overall Feedback section not found.")
-
+                for text in before_overall_feedback_l:
+                    st.text(text)
                 if after_overall_feedback:
                     extracted_text_after = after_overall_feedback.group(1)
                     after_overall_feedback_l.append(extracted_text_after)
@@ -195,23 +197,20 @@ def eval():
                 # overall.append(overall_feedback_section[0])
                 # st.write(overall_feedback_section[0])
                 # #print(overall_feedback_section[0])
-                for text in before_overall_feedback_l:
-                    st.text(text)
 
             # Display the extracted text after "Overall Feedback"
                 st.header("Overall Feedback")
                 for text in after_overall_feedback_l:
                     st.text(text)
-                text_feed =''
-                with open("candidate_evaluation_feedback.txt", "w") as file:
-                    for before_text, after_text in zip(before_overall_feedback_l, after_overall_feedback_l):
-                        text_feed =text_feed + "Question and Answers:\n"
-                        text_feed =text_feed + before_text + "\n\n"
-                        text_feed =text_feed + "'Overall Feedback':\n"
-                        text_feed =text_feed + after_text + "\n\n"
-                filename = "interview.txt"
-                text_bytes = text_feed.encode('utf-8')
-                st.download_button(label="Download The Feedback", data=text_bytes, file_name=filename, mime='text/plain')
+        with open("candidate_evaluation_feedback.txt", "w") as file:
+            for before_text, after_text in zip(before_overall_feedback_l, after_overall_feedback_l):
+                text_feed =text_feed + "Question and Answers:\n"
+                text_feed =text_feed + before_text + "\n\n"
+                text_feed =text_feed + "'Overall Feedback':\n"
+                text_feed =text_feed + after_text + "\n\n"
+        filename = "interview.txt"
+        text_bytes = text_feed.encode('utf-8')
+        st.download_button(label="Download The Feedback", data=text_bytes, file_name=filename, mime='text/plain')
 
             
 def extract_resume_info(resume_info_string):
@@ -421,7 +420,6 @@ def CV_ranking():
         send_email(df)
         
             
-
 
 def rss():
     #st.set_page_config(page_title="Chat with multiple PDFs",page_icon=":books:")
@@ -906,8 +904,6 @@ elif selected_option=='Job Description evaluation':
     Job_Description_evaluation()
 elif selected_option=='First-Round Interview & Evaluation':
     eval()
-elif selected_option=='Generate Screening Questions':
-    gsq()
 elif selected_option=='GenAI Resume Chatbot':
     rss()
 elif selected_option=="Resume Score & Enhancements":
