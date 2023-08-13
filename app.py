@@ -1,6 +1,4 @@
 
-from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_audio
-import speech_recognition as sr
 from langchain.document_loaders import PyPDFLoader, OnlinePDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings import HuggingFaceEmbeddings
