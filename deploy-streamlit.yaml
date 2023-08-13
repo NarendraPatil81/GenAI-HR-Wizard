@@ -29,7 +29,7 @@ jobs:
 
       - name: Set API key as environment variable
         run: |
-          echo "OPENAI_API_KEY=${{ steps.api_key.outputs.api_key }}" >> $GITHUB_ENV
+          echo "OPENAI_API_KEY=${{ steps.openai_api_key.outputs.openai_api_key }}" >> $GITHUB_ENV
 
       - name: Deploy Streamlit App
         run: |
