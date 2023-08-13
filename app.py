@@ -702,7 +702,7 @@ if selected_option=="CV Ranking, Generate Screening Questions & Email Send":
         job_description = content
         job_description = st.text_area(label="Enhanced Job Description",value=content,height=400)
     elif selected_option=="Custom Job Description":
-        job_description = st.text_area(label="Enter Job Description",height=400)
+        job_description = st.text_area(label="Enter Job Description",height=400,value="")
     candidate_n = st.number_input("Enter the number of candidates you want to select from the top CV rankings:",min_value=1,step=1)
     l2=[]
     ques=[]
