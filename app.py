@@ -655,7 +655,7 @@ with st.sidebar:
         default_index=0,
        styles={
         "container": {"padding": "10px", "background-color": "#292b2c"},
-        "icon": {"color": "#f8f9fa", "font-size": "24px"},
+        "icon": {"color": "#ba0615", "font-size": "24px"},
         "nav-link": {"font-size": "16px", "text-align": "left", "margin": "0px", "--hover-color": "#f8f9fa"},
         "nav-link-selected": {"background-color": "#f8f9fa", "color": "#292b2c", "border-radius": "5px"},
     }
