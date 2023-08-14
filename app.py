@@ -909,7 +909,7 @@ elif selected_option=="Resume Score & Enhancements":
         uploaded_files = st.file_uploader("Upload your resume:", type=[".pdf", ".docx",".csv",".pptx"],accept_multiple_files=True)
         if not uploaded_files:
             st.stop()              
-        if uploaded_files and st.button("Check Score"):
+        if uploaded_files and st.button("Check Score 🌟"):
             for uploaded_file in uploaded_files:
                 name.append(uploaded_file.name)
                 if uploaded_file.name[-4:]=='.pdf':
@@ -950,7 +950,7 @@ elif selected_option=="Resume Score & Enhancements":
             for docs_list,name_res in zip(docs,name):
                 #st.write(docs_list)
                 resume_text = docs_list.page_content
-                st.header("Resume Score -")
+                st.header("Resume Score - 🌟")
                 prompt = f"""Evaluate the following resume and provide a score out of 100 based on the following criteria:
 
     - **Content:** Evaluate the relevance, accuracy, and completeness of the information provided. Suggest adding specific details to highlight achievements and responsibilities.
