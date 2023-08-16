@@ -653,11 +653,7 @@ with st.sidebar:
          ,icons=['gear', 'sort-numeric-up',  'cloud-upload', 'robot', 'star'],
         menu_icon='file',
         default_index=0,
-       styles={
-        "container": {"padding": "5!important", "background-color": "#fafafa"},
-        "icon": {"color": "blue", "font-size": "25px"}, 
-        "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "#02ab21"}}
+       
 
     )
     #options = ['Job Description evaluation',"CV Ranking, Generate Screening Questions & Email Send",'First-Round Interview & Evaluation','GenAI Resume Chatbot',"Resume Score & Enhancements"]
