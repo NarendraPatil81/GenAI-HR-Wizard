@@ -31,6 +31,12 @@ from langchain.chains.question_answering import load_qa_chain
 import whisper
 from streamlit_option_menu import option_menu
 global Resume_Flag
+if "prompt" not in st.session_state:
+            st.session_state.prompt = []
+if "chat_history" not in st.session_state:
+            st.session_state.chat_history = []
+if "chat_ans_history" not in st.session_state:
+            st.session_state.chat_ans_history = []
 
 st.set_page_config(page_title="HR Wizard")
 
@@ -464,12 +470,6 @@ def rss():
         text_chunks = get_text_chunks(docs)
         vectorstore = get_vectorstore(text_chunks)
         user_question = st.text_input("What type of information are you looking for in these resumes? Enter keywords or skills.")
-        if "prompt" not in st.session_state:
-            st.session_state.prompt = []
-        if "chat_history" not in st.session_state:
-            st.session_state.chat_history = []
-        if "chat_ans_history" not in st.session_state:
-            st.session_state.chat_ans_history = []
         if user_question:
             print("In side user",user_question)
             #st.session_state['prompt'].append(user_question)
